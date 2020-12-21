@@ -50,6 +50,7 @@ https://bctan87.github.io/js_quiz_app/
 
 - Leaderboard page
 - Go Back will take a user back to the landing page
+- By latest commit, leaderboard is now an ordered list
 
 ## Media Queries
 
