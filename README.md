@@ -43,8 +43,12 @@ https://bctan87.github.io/js_quiz_app/
 
 - Game ends when the user (a) answered all questions or (b) time ran out
 - User's score is the remaining time
+- Play a
 
 ![SC9](/assets/images/sc9.png)
+
+- Leaderboard page
+- Go Back will take a user back to the landing page
 
 ## Media Queries
 
