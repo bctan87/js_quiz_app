@@ -1,1 +1,1 @@
-# timed_coding_quiz
+# js_quiz_app
