@@ -1,0 +1,72 @@
+/* Button styles */
+.choice-container {
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    font-size: larger;
+    min-width: 80rem;
+    margin-bottom: 0.8rem;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.08)
+}
+
+.choice-prefix {
+    padding: 2rem 2.5rem;
+}
+
+.choice-text {
+    padding: 2rem;
+    width: 100%;
+}
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}
+/* End of button styles */
+
+/* HUD */
+#hud {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.hud-main-text {
+    text-align: center;
+}
+/* End HUD Styles */
+
+/* Start Media Queries Style */
+@media screen and (max-width: 980px) {
+    .choice-container {
+        min-width: 90px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .choice-container {
+        min-width: 90px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .choice-container {
+        min-width: 90px;
+    }
+}
+/* End Media Queries Style */

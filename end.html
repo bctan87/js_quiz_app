@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz End</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="end" class="flex-center flex-column">
+            <h1>Your Score is:</h1>
+            <h1 id="finalScore">0</h1>
+            <form class="end-form-container">
+                <h2 id="end-text">Quiz is over!</h2>
+                </br >
+                <input type="text" name="name" id="username" placeholder="Enter your initials">
+                <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)" disabled>Save</button>
+            </form>
+            <a href="./index.html" class="btn">Play Again</a>
+            <!-- <a href="/" class="btn">Go Home</a> -->
+        </div>
+    </div>
+    <script src="./assets/js/end.js"></script>
+</body>
+</html>

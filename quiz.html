@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/quiz.css">
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="container">
+        <div id="game" class="justify-center flex-column">
+            <!-- HUD -->
+            <div id="hud">
+
+                <!-- Question Box -->
+                <div class="hud-item">
+                    <p id="progressText" class="hud-prefix">
+                        Question:
+                    </p>
+                </div>
+
+                <!-- Timer/Score Box -->
+                <div class="hud-item">
+                    <p class="hud-prefix">
+                        Time left:
+                    </p>
+                    <h1 class="hud-main-text">
+                        <span id="score">
+                            60
+                        </span>
+                    </h1>
+                </div>
+            </div>
+            <!-- Question text -->
+            <h1 id="question">My js link is broken!</h1>
+            </br >
+            
+            <!-- Answer buttons -->
+            <div class="choice-container">
+                <p class="choice-prefix">A</p>
+                <p class="choice-text" data-number="1">Choice</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">B</p>
+                <p class="choice-text" data-number="2">Choice 2</p>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/quiz.js"></script>
+</body>
+</html>
