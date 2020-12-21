@@ -17,7 +17,7 @@ https://bctan87.github.io/js_quiz_app/
 1. When a user clicks on "Start Quiz" it will take them to the "Quiz" page
 2. User has 60 seconds to answer five (5) questions re: JS
 3. Questions were taken from Module (4).
-4. If the answer is correct, the button will change to green. Else, red. 
+4. If the answer is correct, the button will change to green, else, red. 
 5. If the user provides an incorrect answer, five (5) seconds is deducted from the timer
 6. If the user failed to complete the quiz in the alotted time, game is over, user gets 0 points
 7. If the user completes all five (5) questions before the time runs out, the game ends.
