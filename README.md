@@ -43,7 +43,8 @@ https://bctan87.github.io/js_quiz_app/
 
 - Game ends when the user (a) answered all questions or (b) time ran out
 - User's score is the remaining time
-- Play a
+- User can only enter letters, numbers, and special characters. Empty space(s) and spacebar entry are disabled
+- Play Again will take the user back to the landing page
 
 ![SC9](/assets/images/sc9.png)
 
