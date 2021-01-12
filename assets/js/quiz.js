@@ -1,16 +1,33 @@
-// These are the targetted items
-const question = document.querySelector('#question');
-const choices = Array.from(document.querySelectorAll('.choice-text'));
-const scoreText = document.querySelector('#score');
+// Timer/Score function
+function countdown() {
+    setInterval(function(){
+        // When user runs out of time, go to end page and get zero score
+        if(score <= 0) {
+            clearInterval(score = 0)
+            localStorage.setItem('mostRecentScore', score)
+            return window.location.assign('./end.html')
+        }
+        scoreDisplay.innerHTML = score
+        score -=1; 
+    }, 1000)
+}
 
+// Timer/Score deductor
+const takeoffPoints = 5
+deductScore = num => {
+    score -=num
+    scoreDisplay.innerText = score
+}
 
-let currentQuestion = {}
-let acceptingAnswers = true
+// This section determines the default Timer/Score
+const scoreDisplay = document.querySelector('#score');
 let score = 60
-let questionCounter = 0
-let availableQuestions = []
 
-// Questions Array
+// This section pertains to the questions
+const question = document.querySelector('#question');
+const questionLimit = 5
+let questionsLeft = []
+let currentQuestion = {}
 let questions = [
     {
         question: "True or false: The DOM is built into the JavaScript language.",
@@ -39,60 +56,34 @@ let questions = [
         answer: 1,
     }
 ]
-// End Questions Array
 
-// This tells how much is deducted when user gets a wrong answer
-const SCORE_DEDUCTION = 5
-
-// This is the number of questions shown
-const MAX_QUESTIONS = 5
-
-// Start Function
-startGame = () => {
-    availableQuestions = [...questions]
-    getNewQuestion()
-    countdown()
-}
-
-// Timer/Score function
-function countdown() {
-    setInterval(function(){
-        // When user runs out of time, go to end page and get zero score
-        if(score <= 0) {
-            clearInterval(score = 0)
-            localStorage.setItem('mostRecentScore', score)
-            return window.location.assign('./end.html')
-        }
-        scoreText.innerHTML = score
-        score -=1; 
-    }, 1000)
-}
-
-// New question function 
-getNewQuestion = () => {
+// This function shows the new questions 
+function displayNextQuestion () {
     // When user runs out of questions, go to end page and get score
-    if(availableQuestions.length === 0) {
+    if(questionsLeft.length === 0) {
         localStorage.setItem('mostRecentScore', score)
         return window.location.assign('./end.html')
     }
 
     // This randomizes the questions
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
-    currentQuestion = availableQuestions[questionsIndex]
+    const questionsIndex = Math.floor(Math.random() * questionsLeft.length)
+    currentQuestion = questionsLeft[questionsIndex]
     question.innerText = currentQuestion.question
 
-    choices.forEach(choice => {
+    answers.forEach(choice => {
         const number = choice.dataset['number']
         choice.innerText = currentQuestion['choice' + number]
     })
-
-    availableQuestions.splice(questionsIndex, 1)
-
+    questionsLeft.splice(questionsIndex, 1)
     acceptingAnswers = true
 }
 
+const answers = Array.from(document.querySelectorAll('.choice-text'));
+let acceptingAnswers = true
+// End Questions Array
+
 // Answer Checker
-choices.forEach(choice => {
+answers.forEach(choice => {
     choice.addEventListener('click', e => {
         if(!acceptingAnswers) return
 
@@ -105,23 +96,23 @@ choices.forEach(choice => {
 
         // Point deductor
         if(classToApply === 'incorrect') {
-            deductScore(SCORE_DEDUCTION)
+            deductScore(takeoffPoints)
         }
 
         selectedChoice.parentElement.classList.add(classToApply)
 
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply)
-            getNewQuestion()
+            displayNextQuestion()
 
         }, 1000)
     })
 })
 
-// Score deductor
-deductScore = num => {
-    score -=num
-    scoreText.innerText = score
+function startGame() {
+    questionsLeft = [...questions]
+    displayNextQuestion()
+    countdown()
 }
 
 startGame()
