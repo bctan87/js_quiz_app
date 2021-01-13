@@ -14,7 +14,7 @@ function countdown() {
 
 // Timer/Score deductor
 const takeoffPoints = 5
-deductScore = num => {
+function deductScore (num) {
     score -=num
     scoreDisplay.innerText = score
 }
@@ -75,19 +75,19 @@ function displayNextQuestion () {
         choice.innerText = currentQuestion['choice' + number]
     })
     questionsLeft.splice(questionsIndex, 1)
-    acceptingAnswers = true
+    correctAnswer = true
 }
 
 const answers = Array.from(document.querySelectorAll('.choice-text'));
-let acceptingAnswers = true
+let correctAnswer = true
 // End Questions Array
 
 // Answer Checker
 answers.forEach(choice => {
     choice.addEventListener('click', e => {
-        if(!acceptingAnswers) return
+        if(!correctAnswer) return
 
-        acceptingAnswers = false
+        correctAnswer = false
         const selectedChoice = e.target
         const selectedAnswer = selectedChoice.dataset['number']
 
